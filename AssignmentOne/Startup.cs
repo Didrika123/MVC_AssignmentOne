@@ -28,8 +28,8 @@ namespace AssignmentOne
                 app.UseDeveloperExceptionPage();
             }
 
-            /*app.UseStaticFiles();
-            app.UseDefaultFiles();*/
+            app.UseStaticFiles();
+            /*app.UseDefaultFiles();*/
             app.UseRouting();
             app.UseSession();
 

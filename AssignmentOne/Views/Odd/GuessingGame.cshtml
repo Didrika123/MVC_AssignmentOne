@@ -3,15 +3,16 @@
     ViewBag.Title = "Guessinator";
 }
 
-
+<h1>Guess the Secret Number</h1>
 
 <form method="post">
     <input name="guess" />
     <label style="color:darkred">@ViewBag.GuessGameError</label>
+    <button>Guess</button>
 </form>
 
 
 @if (ViewBag.GuessGameResult != null)
 {
-<h1>@ViewBag.GuessGameResult @ViewBag.GuessGameNumGuesses</h1>
+<h2>@ViewBag.GuessGameResult @ViewBag.GuessGameNumGuesses</h2>
 }
