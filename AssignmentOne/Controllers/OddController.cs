@@ -38,6 +38,13 @@ namespace AssignmentOne.Controllers
             {
                 ResetGuessGame();
             }
+            bool validHighscore = Request.Cookies.TryGetValue("GGHS", out string highscoreStr);
+            int highscore = 0;
+            if (validHighscore)
+                validHighscore = int.TryParse(highscoreStr, out highscore);
+
+            ViewBag.GuessGameHighscore = validHighscore ? highscore : 0;
+
             return View();
         }
 
@@ -60,6 +67,13 @@ namespace AssignmentOne.Controllers
             HttpContext.Session.SetInt32("NumGuesses", (++numGuesses).Value);
             ViewBag.GuessGameNumGuesses = numGuesses;
 
+            bool validHighscore = Request.Cookies.TryGetValue("GGHS", out string highscoreStr);
+            int highscore = 0;
+            if (validHighscore)
+                validHighscore = int.TryParse(highscoreStr, out highscore);
+
+            ViewBag.GuessGameHighscore = validHighscore ? highscore : 0;
+
             if (guessInt < secretNumber)
             {
                 ViewBag.GuessGameResult = "WRONG, Too Low!";
@@ -72,10 +86,14 @@ namespace AssignmentOne.Controllers
             {
                 ViewBag.GuessGameResult = "WIN";
 
-                CookieOptions options = new CookieOptions();
-                options.Expires = DateTime.Now.AddMonths(1);
-                Response.Cookies.Append("GGHS", numGuesses.ToString(), options); //Guessing Game High Score
-                
+                if(!validHighscore || numGuesses < highscore)
+                {
+                    CookieOptions options = new CookieOptions();
+                    options.Expires = DateTime.Now.AddMonths(1);
+                    Response.Cookies.Append("GGHS", numGuesses.ToString(), options); //Guessing Game High Score
+                    ViewBag.GuessGameHighscore = numGuesses;
+                }
+
                 ResetGuessGame();
             }
             return View();

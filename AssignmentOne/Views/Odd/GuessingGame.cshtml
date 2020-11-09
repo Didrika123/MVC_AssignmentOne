@@ -9,10 +9,11 @@
     <input name="guess" />
     <button>Guess</button><br />
     <label class="errortext">@ViewBag.GuessGameError</label>
+    <p>Highscore: @ViewBag.GuessGameHighscore</p>
 </form>
 
 
 @if (ViewBag.GuessGameResult != null)
 {
-<h2>@ViewBag.GuessGameResult @ViewBag.GuessGameNumGuesses</h2>
+    <h2>@ViewBag.GuessGameResult @ViewBag.GuessGameNumGuesses</h2>
 }
