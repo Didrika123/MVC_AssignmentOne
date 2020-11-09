@@ -6,7 +6,7 @@
 
 
 <form method="post">
-    <input name="temperature" />
+    <input name="temperature" type="number" step="any"/>
     <input type="radio" id="celcius" name="degreetype" value="celcius" checked="checked">
     <label for="celcius">Celcius</label><br>
     <input type="radio" id="fahrenheit" name="degreetype" value="fahrenheit">
@@ -14,22 +14,7 @@
 </form>
 
 
-@if (ViewBag.Temperature != null)
+@if (ViewBag.FeverResult != null)
 {
-    <p>
-        @if (ViewBag.Temperature > 18)
-        {
-            <h1>YOU ARE TO HOT!!!!!</h1>
-        }
-        else if (ViewBag.Temperature < 5)
-        {
-            <h1>YOU ARE TOO COLD!!!!!</h1>
-
-        }
-        else
-        {
-            <h1>YOU ARE OK!!!!!</h1>
-
-        }
-    </p>
+    <h1>@ViewBag.FeverResult</h1>
 }

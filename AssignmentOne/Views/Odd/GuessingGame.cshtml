@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Guessinator";
+}
+
+
+
+<form method="post">
+    <input name="guess" />
+    <label style="color:darkred">@ViewBag.GuessGameError</label>
+</form>
+
+
+@if (ViewBag.GuessGameResult != null)
+{
+<h1>@ViewBag.GuessGameResult @ViewBag.GuessGameNumGuesses</h1>
+}
