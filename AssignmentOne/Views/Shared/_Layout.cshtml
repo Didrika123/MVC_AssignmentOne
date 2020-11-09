@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <img src="asd.png" alt="An aesthetically pleasing Logo was supposed to be here."/>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home") </li>
+            <li>@Html.ActionLink("Projects", "Projects", "Home") </li>
+            <li>@Html.ActionLink("About", "About", "Home") </li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home") </li>
+            <li>@Html.ActionLink("Fever Check", "FeverCheck", "Odd") </li>
+        </ul>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; Your Name, @DateTime.Now.Year</p> 
+    </footer>
+</body>
+</html>
