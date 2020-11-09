@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: cadetblue;
+    color: rgb(108, 159, 203);
 }
 
 ul {
@@ -14,6 +14,9 @@ a {
     text-decoration: none;
     font-size: 1.5em;
     color: mediumslateblue;
+}
+p {
+    margin: 0.5em 0 0.5em 0;
 }
 nav{
     display:grid;
@@ -60,12 +63,53 @@ main {
     min-height: 80vh;
     padding: 4em;
 }
-
-    main h1 {
+    main ul li {
+        padding: 0.5em 0 0.5em 0;
     }
+
+h1, h2 {
+    color: cadetblue;
+    padding: 0.5em 0 0.5em 0;
+}
+form{
+    border: 2px solid gray;
+    width: max-content;
+    padding: 2em;
+}
+button {
+    padding: 0.5em 1em 0.5em 1em;
+    border: 2px solid rgb(83, 174, 101);
+    border-radius: 4px;
+    font-size: 1em;
+    color: black;
+    background-color: rgb(105, 195, 110);
+    cursor: pointer;
+    margin-top: 1em;
+    margin: 0.5em 0 0.5em 0.5em;
+}
+    button:hover {
+        background-color: lightskyblue;
+        border: 2px solid cornflowerblue;
+    }
+main input {
+    padding: 0.5em 1em 0.5em 1em;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 1em;
+    color: black;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    margin: 0.5em 0 0.5em 0;
+}
+main input [type=radio]{
+}
 
 footer {
     text-align: center;
     margin-bottom: 0;
     grid-area: footer;
+}
+
+.errortext {
+   color: darkred;
 }
