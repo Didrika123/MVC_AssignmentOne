@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AssignmentOne.Models
 {
-    public static class FeverChecker
+    public static class FeverCheckService
     {
         public enum DegreeType
         {

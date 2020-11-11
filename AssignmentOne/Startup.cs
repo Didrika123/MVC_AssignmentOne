@@ -35,6 +35,11 @@ namespace AssignmentOne
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "asd",
+                    pattern: "custom/{action=FeverCheck}/{id?}",
+                    defaults: new { controller = "Odd", action = "FeverCheck" }
+                    );
                 endpoints.MapDefaultControllerRoute();
                 /*endpoints.MapGet("/", async context =>
                 {

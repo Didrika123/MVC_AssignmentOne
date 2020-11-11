@@ -7,16 +7,16 @@
 <h1>Are you ill?</h1>
 
 <form method="post">
-    <input name="temperature" type="number" step="any" /><button>Check Temp</button><br />
+    <input name="temperature" type="number" step="any" autofocus />
+    <button class="button-green" type="submit">Check Temp</button><br />
     <input type="radio" id="celcius" name="degreetype" value="celcius" checked="checked">
     <label for="celcius">Celcius</label><br>
     <input type="radio" id="fahrenheit" name="degreetype" value="fahrenheit">
     <label for="fahrenheit">Fahrenheit</label><br>
-    
+
+
+    @if (ViewBag.FeverResult != null)
+    {
+        <h2>@ViewBag.FeverResult</h2>
+    }
 </form>
-
-
-@if (ViewBag.FeverResult != null)
-{
-    <h2>@ViewBag.FeverResult</h2>
-}

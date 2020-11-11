@@ -1,4 +1,4 @@
-﻿
+﻿@model GuessEntry
 @{
     ViewBag.Title = "Guessinator";
 }
@@ -6,14 +6,13 @@
 <h1>Guess the Secret Number</h1>
 
 <form method="post">
-    <input name="guess" />
-    <button>Guess</button><br />
-    <label class="errortext">@ViewBag.GuessGameError</label>
-    <p>Highscore: @ViewBag.GuessGameHighscore</p>
+    <div>
+        <input asp-for="Guess" autofocus value="" />
+        <input class="button-green" type="submit" value="Guess"><br />
+        <label class="errortext">@Model.Error</label>
+    </div>
+    <label>Highscore: @Model.Highscore</label>
+    <h2>@Model.Status</h2>
 </form>
 
 
-@if (ViewBag.GuessGameResult != null)
-{
-    <h2>@ViewBag.GuessGameResult @ViewBag.GuessGameNumGuesses</h2>
-}
