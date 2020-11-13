@@ -10,43 +10,50 @@ ul {
     list-style: none;
 }
 
-a  {
+a {
     text-decoration: none;
-    font-size: 1.5em;
     color: mediumslateblue;
 }
-p {
-    margin: 0.5em 0 0.5em 0;
-}
-nav{
-    display:grid;
-    grid-template-areas: "logo links";
-    justify-content: left;
-}
-a:hover {
-    color: cornflowerblue;
-}
 
+    a:hover {
+        color: cornflowerblue;
+    }
 
-nav img {
+.home-link-img {
+    background: url("../img/logo.png") no-repeat center center/cover;
     grid-area: logo;
     display: inline-block;
     image-rendering: -moz-crisp-edges;
-    margin: auto;
-    padding-left: 0.5em;
+    margin: auto 0 auto 1em;
     height: 3em;
+    width: 3em;
+}
+li a {
+    font-size: 1.5em;
 }
 
-nav ul {
-    grid-area: links;
-    display: inline-block;
+p {
+    margin: 0.5em 0 0.5em 0;
+    line-height: 1.2em;
 }
 
-    nav ul li {
+nav {
+    display: grid;
+    grid-template-areas: "logo links";
+    justify-content: left;
+}
+
+
+    nav ul {
+        grid-area: links;
         display: inline-block;
-        padding: 1.5em 1em 0 1em;
-        height: 4em;
     }
+
+        nav ul li {
+            display: inline-block;
+            padding: 1.5em 1em 0 1em;
+            height: 4em;
+        }
 
 header {
     grid-area: header;
@@ -64,6 +71,7 @@ main {
     min-height: 80vh;
     padding: 4em;
 }
+
     main ul li {
         padding: 0.5em 0 0.5em 0;
     }
@@ -72,17 +80,24 @@ h1 {
     color: cadetblue;
     padding: 0.5em 0 0.5em 0;
 }
+
 h2 {
     color: cornflowerblue;
     padding: 0.5em 0 0.5em 0;
-    word-wrap:break-word;
-    white-space:pre-wrap;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
+
+table td, tr {
+    padding: 0.5em 1em 0.5em 0;
+}
+
 form {
     border: 2px solid gray;
     width: min-content;
     padding: 2em;
     white-space: nowrap;
+    height: 28vh;
 }
 
 main input {
@@ -95,8 +110,10 @@ main input {
     -moz-appearance: textfield;
     margin: 0.5em 0 0.5em 0;
 }
-main input[type=radio]{
-}
+
+    main input[type=radio] {
+    }
+
 .button-green {
     padding: 0.5em 1em 0.5em 1em;
     border: 2px solid rgb(83, 174, 101);
@@ -113,6 +130,7 @@ main input[type=radio]{
         background-color: lightskyblue;
         border: 2px solid cornflowerblue;
     }
+
 footer {
     text-align: center;
     margin-bottom: 0;
@@ -120,5 +138,5 @@ footer {
 }
 
 .errortext {
-   color: darkred;
+    color: darkred;
 }

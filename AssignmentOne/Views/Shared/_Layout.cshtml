@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/css/site.css" type="text/css"/>
+    <link rel="stylesheet" href="~/css/site.css" type="text/css" />
 </head>
 <body>
     <header>
         <nav>
-            <img src="~/img/logo.png" alt="An aesthetically pleasing Logo was supposed to be here." />
+            <a asp-action="Index" asp-controller="Home" class="home-link-img"></a>
 
             <ul>
                 <li>@Html.ActionLink("Home", "Index", "Home") </li>
@@ -26,7 +26,7 @@
         @RenderBody()
     </main>
     <footer>
-        <p>&copy; Your Name, @DateTime.Now.Year</p> 
+        <p>&copy; Didrika, @DateTime.Now.Year</p>
     </footer>
 </body>
 </html>

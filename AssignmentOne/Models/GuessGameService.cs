@@ -44,9 +44,9 @@ namespace AssignmentOne.Models
             if(guessEntry.NumGuesses > 0 && IsValidGuess(guessEntry.Guess)) 
             {
                 if (guessEntry.Guess > guessEntry.SecretNumber)
-                    guessEntry.Status = "To High!";
+                    guessEntry.Status = $"To High! ({guessEntry.NumGuesses} guesses)";
                 else if (guessEntry.Guess < guessEntry.SecretNumber)
-                    guessEntry.Status = "Too Low!";
+                    guessEntry.Status = $"Too Low! ({guessEntry.NumGuesses} guesses)";
                 else
                 {
                     bool newHighscore = false;
@@ -55,7 +55,7 @@ namespace AssignmentOne.Models
                         guessEntry.Highscore = guessEntry.NumGuesses;
                         newHighscore = true;
                     }
-                    guessEntry.Status = $"You Win! \n({guessEntry.NumGuesses} guesses) " + (newHighscore? "New Highscore!" : "");
+                    guessEntry.Status = $"You Win! ({guessEntry.NumGuesses} guesses) " + (newHighscore? "New Highscore!" : "");
                     guessEntry.Guess = _minGuess - 1;
                     guessEntry.NumGuesses = 0;
                     guessEntry.SecretNumber = _minGuess - 1;

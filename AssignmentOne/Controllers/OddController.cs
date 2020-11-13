@@ -12,14 +12,12 @@ namespace AssignmentOne.Controllers
     {
         
         [HttpGet]
-        [Route("/FeverCheck")]
         public IActionResult FeverCheck()
         {
             return View();
         }
 
         [HttpPost]
-        [Route("/FeverCheck")]
         public IActionResult FeverCheck(float temperature, string degreetype)
         {
             FeverCheckService.DegreeType type = degreetype == "fahrenheit" ? FeverCheckService.DegreeType.Fahrenheit : FeverCheckService.DegreeType.Celcius;
@@ -30,7 +28,8 @@ namespace AssignmentOne.Controllers
 
 
         [HttpGet]
-        [Route("/GuessingGame")]
+        [Route("/GuessingGame")] //if specifying custom route like this you can only access it this way, and not by default ControllerName/ActionName
+        [Route("{controller}/GuessingGame")]
         public IActionResult GuessingGame()
         {
             //Load data from Cookies
@@ -45,11 +44,11 @@ namespace AssignmentOne.Controllers
             //Update Cookies  (Why? If Cookies dont exist or Won Game -> the guessEntry builder will alter the values)
             HttpContext.Session.SetInt32("GGSecretNumber", guessEntry.SecretNumber);
             HttpContext.Session.SetInt32("GGNumGuesses", guessEntry.NumGuesses);
-            HttpContext.Session.Remove("GGGuess"); //Consume the guess in this run so we can know when a new guess appears so we only do error check on new guesses.
+            HttpContext.Session.Remove("GGGuess"); //Eat the Cookie guess in this run so we can know when a new guess appears so we only do error check on new guesses.
             if(highscoreStr != guessEntry.Highscore.ToString()) //Dont update clients highscore cookie if unchanged to save some time
             {
                 CookieOptions options = new CookieOptions();
-                options.Expires = DateTime.Now.AddMonths(1);
+                options.Expires = DateTime.Now.AddDays(1);
                 Response.Cookies.Append("GGHighscore", guessEntry.Highscore.ToString(), options);
             }
 
@@ -60,6 +59,7 @@ namespace AssignmentOne.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken] //Use asp-for tags in your form, and u will get autocreated token
         [Route("/GuessingGame")]
+        [Route("{controller}/GuessingGame")]
         public IActionResult GuessingGame(GuessEntry guessEntry)
         {
             int? numGuesses = HttpContext.Session.GetInt32("GGNumGuesses");
