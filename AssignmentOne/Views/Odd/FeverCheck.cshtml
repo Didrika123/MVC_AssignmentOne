@@ -6,9 +6,9 @@
 
 <h1>Are you ill?</h1>
 
-<form method="post">
-    <input name="temperature" type="number" step="any" autofocus/>
-    <button class="button-green" type="submit">Check Temp</button><br />
+<form method="post" id="formTemperature">
+    <input name="temperature" id="temperature" type="number" step="any" autofocus/>
+    <button id="btnSubmitTemperature" class="button-green" type="submit">Check Temp</button><br />
     <input type="radio" id="celcius" name="degreetype" value="celcius" checked="checked">
     <label for="celcius">Celcius</label><br>
     <input type="radio" id="fahrenheit" name="degreetype" value="fahrenheit">

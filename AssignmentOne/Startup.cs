@@ -28,15 +28,22 @@ namespace AssignmentOne
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.UseHttpsRedirection(); //when redirecting when using authentication this is needed or auth will be lost?
             app.UseStaticFiles();
             /*app.UseDefaultFiles();*/
             app.UseRouting();
             app.UseSession();
+           // app.UseAuthentication();// forauthentication
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute( //Note: it doesnt seem to like mixing these custom routes and specified attribute routes in controller since it overwrites the default routing pattern?
+                    name: "MySpecialRule", 
+                    pattern: "lolol/{action=FeverCheck}",
+                    defaults: new { controller = "Odd"}
+                    );
                 endpoints.MapControllerRoute(
-                    name: "feverCheck",
+                    name: "feverCheck", 
                     pattern: "/FeverCheck",
                     defaults: new { controller = "Odd", action = "FeverCheck" }
                     );

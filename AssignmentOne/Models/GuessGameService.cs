@@ -55,7 +55,7 @@ namespace AssignmentOne.Models
                         guessEntry.Highscore = guessEntry.NumGuesses;
                         newHighscore = true;
                     }
-                    guessEntry.Status = $"You Win! ({guessEntry.NumGuesses} guesses) " + (newHighscore? "New Highscore!" : "");
+                    guessEntry.Status = $"You Win! ({guessEntry.NumGuesses} guesses) " + (newHighscore? "\r\nNew Highscore!" : "");
                     guessEntry.Guess = _minGuess - 1;
                     guessEntry.NumGuesses = 0;
                     guessEntry.SecretNumber = _minGuess - 1;
